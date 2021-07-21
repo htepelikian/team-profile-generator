@@ -15,6 +15,8 @@ Clone down repository, and enter "node index.js" - answer following questions!
 
 ## Usage 
 
+![team profile generator gif](https://user-images.githubusercontent.com/85534144/126421116-a7e69496-dc28-449c-93ee-e6b172ad3b46.gif)
+
 ```
 
 
