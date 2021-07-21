@@ -96,3 +96,31 @@ async function generateHTML() {
 
     createHTML(completeHTML);
 }
+
+async function createHTML(html) {
+    console.log("Creating HTML...");
+    let file = `team-${timestamp()}.html`;
+    let dir = "./output";
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+    await writeFile(`${dir}/${file}`, html);
+    console.log(`HTML has been created to "${dir}/${file}".`);
+    return;
+}
+
+async function init() {
+    console.log("Please build your team");
+    await addRole("Manager");
+    let member = "";
+    let exit = "I don't want to add anymore team members";
+    while (member != exit) {
+        let { member } = await inquirer.prompt(questions.type());
+        if (member === exit) {
+            return generateHTML();
+        }
+        await addRole(member);
+    }
+}
+
+init();
